@@ -1,0 +1,16 @@
+{
+  "name": "pwcanvas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.45.2",
+    "@techstark/opencv-js": "^4.9.0-release.3",
+    "@types/node": "^20.14.11",
+    "jimp": "^0.22.12"
+  }
+}
