@@ -3,7 +3,7 @@ import jimp from 'jimp' //For reading image data from disc and converting to for
 import cv from '@techstark/opencv-js'
 
 test('canvas', async ({ page }, testInfo) => {
-  await page.goto('file://C://Users/StevePowell/Documents/pwcanvas/index.html');
+  await page.goto('file://' + process.cwd() + '/index.html');
   const canvasImage = await page.locator('canvas').screenshot()
   testInfo.attach('Beginning', { body: await page.screenshot(), contentType: 'image/png' })
   testInfo.attach('Canvas', { body: canvasImage, contentType: 'image/png' })
@@ -28,7 +28,7 @@ test('canvas', async ({ page }, testInfo) => {
   //Find the maximum value and its location
   let minMax = cv.minMaxLoc(result, new cv.Mat()); //Second param not needed to run, but IDE will complain of an error without it.
   let { maxLoc } = minMax;
-
+  console.log(minMax)
   console.log(`Apple found at location: (${maxLoc.x}, ${maxLoc.y})`); //Top left co-ords
 
   //Attempt click in center of found image
@@ -48,4 +48,6 @@ test('canvas', async ({ page }, testInfo) => {
   //Capture image to show click worked
   testInfo.attach('End', { body: await page.screenshot(), contentType: 'image/png' })
 });
+
+
 
